@@ -11,6 +11,7 @@ void LiberarMatriz(char**,int);
 void ImprimirMatriz(char**,int,int);
 int Validar(string);
 void LlenarMatriz(char**,string,int,int);
+int ConteoSafe(char**,int,int);
 //main
 int main(){
 	char resp='s';
@@ -20,17 +21,14 @@ int main(){
 		string patron;
 		char** matrix=NULL;
 		//pedir datos
-		cout<< "Ingrese las filas de la matriz: ";
+		cout<< "Ingrese las filas de la matriz: "<<endl;
 		cin>> filas;
-		cout<< endl;
-		cout<<"Ingrese las columnas de la matriz: ";
+		cout<<"Ingrese las columnas de la matriz: "<<endl;
 		cin>> columnas;
-		cout<< endl;
 		cout<< "Ingrese en un string el patron de la primera fila: ";
 		cin>> patron;
 		int vali = Validar(patron);
-		cout<<"vali: "<<vali<<endl;
-		cout<<"tam: "<<patron.length()<<endl;
+		//validacion
 		while(patron.length()!=columnas||vali==0){
 			if(patron.length()!=columnas){
 				cout<< "El patron tiene que tene la misma longitud que sus columnas("<<columnas<<")"<<endl;
@@ -43,9 +41,12 @@ int main(){
 			}
 		}
 		cout<< endl;
+		//utilizacion de metodos
 		matrix=CrearMatriz(filas,columnas);
 		LlenarMatriz(matrix,patron,filas,columnas);
 		ImprimirMatriz(matrix,filas,columnas);
+		int CasillasSafe = ConteoSafe(matrix,filas,columnas);
+		cout<<"El numero de casillas seguras es de: "<<CasillasSafe<<endl;
 		LiberarMatriz(matrix,filas);
 		cout<<"Desea volver a entrar?[s/n]"<<endl;
 		cin>>resp;
@@ -90,7 +91,6 @@ int Validar(string cadena){
 			vali=0;
 		}
 	}
-	cout<<"vali: "<<vali<<endl;
 	return vali;
 }
 void LlenarMatriz(char** matrix,string patron,int filas, int columnas){
@@ -131,4 +131,16 @@ void LlenarMatriz(char** matrix,string patron,int filas, int columnas){
 			}
 		}
 	}
+}
+int ConteoSafe(char** matrix,int filas,int columnas){
+	int cont=0;
+	for(int i=0;i<filas;i++){
+                for(int j=0;j<columnas;j++){
+                        if(matrix[i][j]=='.'){
+				cont++;
+			}
+                }
+                cout<<endl;
+        }
+	return cont;
 }
