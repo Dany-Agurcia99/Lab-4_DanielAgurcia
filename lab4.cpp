@@ -86,7 +86,7 @@ int Validar(string cadena){
 	int vali=1;
 	for(int i=0;i<cadena.length();i++){
 		cout<<"cadena["<<i<<"]= "<<cadena[i]<<endl;
-		if(cadena[i]!='*'&&cadena[i]!='^'){
+		if(cadena[i]!='.'&&cadena[i]!='^'){
 			vali=0;
 		}
 	}
@@ -98,12 +98,36 @@ void LlenarMatriz(char** matrix,string patron,int filas, int columnas){
 		for(int j=0;j<columnas;j++){
 			if(i==0){
 				matrix[i][j]=patron[j];
-			}
-			if(j==1){
-
-			}
-			if(j==patron.length()-1){
-
+			}else{
+				if(j==0){
+					if(matrix[i-1][j]=='.' && matrix[i-1][j+1]=='^'){
+						matrix[i][j]='^';
+					}else if(matrix[i-1][j]=='^' && matrix[i-1][j+1]=='^'){
+						matrix[i][j]='^';
+					}else{
+						matrix[i][j]='.';
+					}
+				}else if(j==patron.length()-1){
+					if(matrix[i-1][patron.length()-2] == '^'&&matrix[i-1][patron.length()-1]=='^'){
+						matrix[i][j]='^';
+					}else if(matrix[i-1][patron.length()-2] =='^'&&matrix[i-1][patron.length()-1]=='.'){
+						matrix[i][j]='^';
+					}else{
+						matrix[i][j]='.';
+					}
+				}else{
+					if(matrix[i-1][j-1]=='^'&&matrix[i-1][j]=='^'&&matrix[i-1][j+1]=='.'){
+						matrix[i][j]='^';
+					}else if(matrix[i-1][j-1]=='.'&&matrix[i-1][j]=='^'&&matrix[i-1][j+1]=='^'){
+						matrix[i][j]='^';
+					}else if(matrix[i-1][j-1]=='^'&&matrix[i-1][j]=='.'&&matrix[i-1][j+1]=='.'){
+						matrix[i][j]='^';
+					}else if(matrix[i-1][j-1]=='.'&&matrix[i-1][j]=='.'&&matrix[i-1][j+1]=='^'){
+						matrix[i][j]='^';
+                                        }else{
+						matrix[i][j]='.';
+					}
+				}
 			}
 		}
 	}
