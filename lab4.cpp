@@ -49,11 +49,10 @@ int main(){
 		cout<<"El numero de casillas seguras es de: "<<CasillasSafe<<endl;
 		LiberarMatriz(matrix,filas);
 		cout<<"Desea volver a entrar?[s/n]"<<endl;
-		cin>>resp;
 	}
 return 0;
 }
-
+//Crear Matriz
 char** CrearMatriz(int filas,int columnas){
 	char** matrix = new char*[filas];
 	for(int i=0;i<filas;i++){
@@ -65,6 +64,7 @@ char** CrearMatriz(int filas,int columnas){
 
 	return matrix;
 }
+//Liberar Matriz
 void LiberarMatriz(char** matrix,int size){
 	for(int i=0;i<size;i++){
 		if(matrix[i]!=NULL){
@@ -74,6 +74,7 @@ void LiberarMatriz(char** matrix,int size){
 	}
 	delete[] matrix;
 }
+//Imprimir Matriz
 void ImprimirMatriz(char** matrix,int filas, int columnas){
 	for(int i=0;i<filas;i++){
 		for(int j=0;j<columnas;j++){
@@ -83,6 +84,7 @@ void ImprimirMatriz(char** matrix,int filas, int columnas){
 	}
 
 }
+//Validacion del patron
 int Validar(string cadena){
 	int vali=1;
 	for(int i=0;i<cadena.length();i++){
@@ -93,6 +95,7 @@ int Validar(string cadena){
 	}
 	return vali;
 }
+//llenado de la matriz
 void LlenarMatriz(char** matrix,string patron,int filas, int columnas){
 	for(int i=0;i<filas;i++){
 		for(int j=0;j<columnas;j++){
@@ -132,6 +135,7 @@ void LlenarMatriz(char** matrix,string patron,int filas, int columnas){
 		}
 	}
 }
+//conteo de las casillas seguras
 int ConteoSafe(char** matrix,int filas,int columnas){
 	int cont=0;
 	for(int i=0;i<filas;i++){
