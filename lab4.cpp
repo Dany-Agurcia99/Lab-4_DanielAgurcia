@@ -10,7 +10,7 @@ char** CrearMatriz(int,int);
 void LiberarMatriz(char**,int);
 void ImprimirMatriz(char**,int,int);
 int Validar(string);
-void LLenarMatriz(char**,string,int,int);
+void LlenarMatriz(char**,string,int,int);
 //main
 int main(){
 	char resp='s';
@@ -93,7 +93,7 @@ int Validar(string cadena){
 	cout<<"vali: "<<vali<<endl;
 	return vali;
 }
-void LLenarMatriz(char** matrix,string patron,int filas, int columnas){
+void LlenarMatriz(char** matrix,string patron,int filas, int columnas){
 	for(int i=0;i<filas;i++){
 		for(int j=0;j<columnas;j++){
 			if(i==0){
