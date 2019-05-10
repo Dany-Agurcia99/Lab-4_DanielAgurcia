@@ -44,6 +44,7 @@ int main(){
 		}
 		cout<< endl;
 		matrix=CrearMatriz(filas,columnas);
+		LlenarMatriz(matrix,patron,filas,columnas);
 		ImprimirMatriz(matrix,filas,columnas);
 		LiberarMatriz(matrix,filas);
 		cout<<"Desea volver a entrar?[s/n]"<<endl;
