@@ -14,13 +14,18 @@ int main(){
 	while(resp=='s'||resp=='S'){
 		int filas;
 		int columnas;
+		string patron;
 		char** matrix=NULL;
-		cout<<"Ingrese las filas de la matriz: ";
+		//pedir datos
+		cout<< "Ingrese las filas de la matriz: ";
 		cin>> filas;
-		cout<<endl;
+		cout<< endl;
 		cout<<"Ingrese las columnas de la matriz: ";
-		cin>>columnas;
-		cout<<endl;
+		cin>> columnas;
+		cout<< endl;
+		cout<< "Ingrese en un string el patron de la primera fila: ";
+		cin>> patron;
+		cout<< endl;
 		matrix=CrearMatriz(filas,columnas);
 		ImprimirMatriz(matrix,filas,columnas);
 		LiberarMatriz(matrix,filas);
