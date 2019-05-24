@@ -49,6 +49,7 @@ int main(){
 		cout<<"El numero de casillas seguras es de: "<<CasillasSafe<<endl;
 		LiberarMatriz(matrix,filas);
 		cout<<"Desea volver a entrar?[s/n]"<<endl;
+		cin>>resp;
 	}
 return 0;
 }
@@ -88,7 +89,6 @@ void ImprimirMatriz(char** matrix,int filas, int columnas){
 int Validar(string cadena){
 	int vali=1;
 	for(int i=0;i<cadena.length();i++){
-		cout<<"cadena["<<i<<"]= "<<cadena[i]<<endl;
 		if(cadena[i]!='.'&&cadena[i]!='^'){
 			vali=0;
 		}
